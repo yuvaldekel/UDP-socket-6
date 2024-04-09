@@ -7,13 +7,14 @@ def main():
         while what_to_send == '':
             what_to_send = input("what would you like to send to the server: ")
        
-        start = datetime.datetime.now()
+        #start = datetime.datetime.now()
         my_socket.sendto(what_to_send.encode(), ("127.0.0.1", 8821))
         data, remote_address = my_socket.recvfrom(1024)
-        end = datetime.datetime.now()
-        time_took = end - start
+        #end = datetime.datetime.now()
+        #time_took = end - start
         
-        print("The server '{}' sent: {} took {} microseconds".format(remote_address[0], data.decode(), time_took.microseconds))
+        #print("The server '{}' sent: {} took {} microseconds".format(remote_address[0], data.decode(), time_took.microseconds))
+        print("The server '{} {}' sent: {}".format(remote_address[0], remote_address[1], data.decode()))
 
 if __name__ == "__main__":
     main()
